@@ -18,9 +18,9 @@ const proyectos = [
         ],
         costo: "450.00",
         imagenes: [
-            "/public/image/campana/campana1.JPG",
-            "/public/image/campana/campana2.JPG",
-            "/public/image/campana/campana3.JPG",
+            "/image/campana/campana1.JPG",
+            "/image/campana/campana1.JPG",
+            "/image/campana/campana1.JPG",
         ],
         videoUrl: "https://www.youtube.com/watch?v=BLYoyTDH6uQ",
         pdfs: [
