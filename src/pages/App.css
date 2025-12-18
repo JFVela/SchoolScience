@@ -1,0 +1,30 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  color: #15f5ba;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+
+h2{
+  color: #ffffff;
+    font-family: "Audiowide", sans-serif;
+    font-weight: normal;
+    font-size: 1.8rem;
+}
+
+h3 {
+  color: #f0f3ff;
+  font-family: "Iceland", serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+}
