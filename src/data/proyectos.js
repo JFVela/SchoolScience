@@ -24,7 +24,7 @@ const proyectos = [
             "/image/campana/campana2.jpeg", // Asumo que tendrás más fotos
         ],
         // He puesto un video real que explica cómo hacerla paso a paso
-        videoUrl: "https://www.youtube.com/watch?v=CfaawgMBFkE",
+        videoUrl: "https://www.youtube.com/watch?v=LcDle_L-JPY",
         pdfs: [
             {
                 titulo: "Guía de Construcción y Teoría",
@@ -60,7 +60,7 @@ const proyectos = [
             "/image/densidad/densidad3.jpeg",
         ],
         // Video tutorial académico sobre el procedimiento
-        videoUrl: "https://www.youtube.com/watch?v=rOEBxzicDEM",
+        videoUrl: "https://www.youtube.com/watch?v=fSAPPblunPM",
         pdfs: [
             {
                 titulo: "Informe Científico: Principios de Flotabilidad",
@@ -106,7 +106,7 @@ const proyectos = [
             "/image/brazo/brazo5.jpeg",
         ],
         // Este es un excelente tutorial paso a paso muy popular
-        videoUrl: "https://www.youtube.com/watch?v=R82cqi4JLV8",
+        videoUrl: "https://www.youtube.com/watch?v=u6F8uyhLisk",
         pdfs: [
             {
                 titulo: "Fundamentos Teóricos: Hidrodinámica",
@@ -141,7 +141,7 @@ const proyectos = [
             "/image/lampara/lampara3.jpeg",
         ],
         // Video tutorial claro y directo
-        videoUrl: "https://www.youtube.com/watch?v=m5d4xrCXQMQ",
+        videoUrl: "https://www.youtube.com/watch?v=tRBHEmtBiFM",
         pdfs: [
             {
                 titulo: "Guía de Laboratorio: Polaridad Química",

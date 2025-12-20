@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import ImageCarousel from "../components/ImageCarousel";
-import { Card, CardContent, Badge } from "@mui/material";
+import { Card, CardContent, Badge, Fab } from "@mui/material";
 import proyectos from "../data/proyectos";
 import styled from "styled-components";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Agrupar = styled.div`
   display: flex;
@@ -349,25 +350,33 @@ export default function DetalleProyecto() {
           </ColumnaGrande>
         </Agrupar>
 
-        <div style={{ textAlign: "center", marginTop: 40 }}>
-          <button
-            onClick={() => navigate(-1)}
-            style={{
-              padding: "12px 24px",
-              borderRadius: 10,
+        <Fab
+          aria-label="volver"
+          onClick={() => navigate(-1)}
+          sx={{
+            position: "fixed",
+            bottom: 30,
+            right: 30,
+            zIndex: 1000,
+
+            backgroundColor: "#15F5BA",
+            color: "#211951",
+            width: "60px",
+            height: "60px",
+            boxShadow: "0 0 15px rgba(21, 245, 186, 0.6)",
+            border: "2px solid #211951",
+
+            transition: "all 0.3s ease",
+            "&:hover": {
               backgroundColor: "#836FFF",
               color: "#F0F3FF",
-              textDecoration: "none",
-              fontWeight: "bold",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "1rem",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
-            }}
-          >
-            ← Volver atrás
-          </button>
-        </div>
+              transform: "scale(1.1) rotate(-10deg)",
+              boxShadow: "0 0 25px rgba(131, 111, 255, 0.8)",
+            },
+          }}
+        >
+          <ArrowBackIcon sx={{ fontSize: "2rem" }} />
+        </Fab>
       </div>
     </div>
   );
