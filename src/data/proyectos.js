@@ -22,7 +22,6 @@ const proyectos = [
         imagenes: [
             "/image/campana/campana1.jpeg",
             "/image/campana/campana2.jpeg", // Asumo que tendrás más fotos
-            "/image/campana/campana3.jpeg",
         ],
         // He puesto un video real que explica cómo hacerla paso a paso
         videoUrl: "https://www.youtube.com/watch?v=CfaawgMBFkE",

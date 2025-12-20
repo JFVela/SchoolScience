@@ -49,7 +49,7 @@ export default function DetalleProyecto() {
         <h1
           style={{
             textAlign: "center",
-            fontSize: "3rem",
+            fontSize: "2.5rem",
             fontWeight: "bold",
             color: "#15F5BA",
             textShadow: "0 0 20px rgba(21,245,186,0.5)",
