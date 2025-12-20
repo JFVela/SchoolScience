@@ -131,13 +131,13 @@ export default function DetalleProyecto() {
           </Card>
         )}
 
-        {proyectoData.videoId && (
+        {proyectoData.videoUrl && (
           <Card sx={{ mt: 4, backgroundColor: "#2d1f6e" }}>
             <CardContent>
               <h2 style={{ color: "#15F5BA" }}>🎬 Video del Experimento</h2>
               <div style={{ position: "relative", paddingTop: "56.25%" }}>
                 <iframe
-                  src={`https://www.youtube.com/embed/${proyectoData.videoId}`}
+                  src={`https://www.youtube.com/embed/${proyectoData.videoUrl}`}
                   title="Video del experimento"
                   style={{
                     position: "absolute",
@@ -221,7 +221,7 @@ export default function DetalleProyecto() {
 
         <div style={{ textAlign: "center", marginTop: 40 }}>
           <button
-            onClick={() => navigate(-1)} // Esto regresa a la página anterior
+            onClick={() => navigate(-1)} 
             style={{
               padding: "12px 24px",
               borderRadius: 10,

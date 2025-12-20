@@ -95,7 +95,17 @@ export default function FlipScienceCard({
             {title}
           </Typography>
 
-          <Typography variant="body2" sx={{ color: "#F0F3FF" }}>
+          <Typography
+            variant="body2"
+            sx={{
+              color: "#F0F3FF",
+              display: "-webkit-box",
+              overflow: "hidden",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 3, // Número máximo de líneas (ajústalo a tu gusto)
+              height: "60px",
+            }}
+          >
             {description}
           </Typography>
         </CardContent>
