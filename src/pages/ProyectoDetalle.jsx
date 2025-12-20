@@ -8,46 +8,46 @@ const Agrupar = styled.div`
   display: flex;
   width: 100%;
   gap: 20px;
-  align-items: stretch;
   align-items: center;
+
   @media (max-width: 1100px) {
     flex-direction: column;
+    height: auto;
   }
 `;
 
 const ColumnaGrande = styled.div`
-  flex: 2; /* Esto es el 66% del ancho */
-  width: 100%; /* Para asegurar que llene su espacio en movil */
+  flex: 2; /* Ocupa el 66% aprox */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Grupo = styled.div`
-  flex: 1; /* Esto es el 33% del ancho */
+  flex: 1; /* Ocupa el 33% aprox */
   display: flex;
   flex-direction: column;
-  background-color: turquoise;
   justify-content: space-between;
+  gap: 20px;
 `;
 
 const ScrollBox = styled.div`
-  max-height: 120px;
+  max-height: 150px;
   overflow-y: auto;
   padding-right: 10px;
-
+  flex-grow: 1;
   &::-webkit-scrollbar {
     width: 0.8rem;
   }
-
   &::-webkit-scrollbar-track {
     background: rgba(33, 25, 81, 0.5);
     border-radius: 4px;
   }
-
   &::-webkit-scrollbar-thumb {
     background: #15f5ba;
     border-radius: 4px;
     border: 1px solid #211951;
   }
-
   &::-webkit-scrollbar-thumb:hover {
     background: #836fff;
   }
@@ -94,7 +94,13 @@ export default function DetalleProyecto() {
   }
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#211951" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#211951",
+        paddingBottom: "40px",
+      }}
+    >
       <div style={{ maxWidth: "1100px", margin: "auto", padding: "40px 20px" }}>
         <h1
           style={{
@@ -136,37 +142,56 @@ export default function DetalleProyecto() {
           </ColumnaGrande>
 
           <Grupo>
-            <Card sx={{ backgroundColor: "#2d1f6e", mb: 2 }}>
-              <CardContent>
+            <Card
+              sx={{
+                backgroundColor: "#2d1f6e",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <CardContent
+                sx={{ flex: 1, display: "flex", flexDirection: "column" }}
+              >
                 <h2 style={{ color: "#15F5BA" }}>👥 Integrantes</h2>
-                {proyectoData.integrantes?.map((nombre, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      marginTop: 10,
-                    }}
-                  >
-                    <Badge
-                      sx={{ backgroundColor: "#15F5BA", color: "#211951" }}
+                <ScrollBox>
+                  {proyectoData.integrantes?.map((nombre, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        marginTop: 10,
+                      }}
                     >
-                      {i + 1}
-                    </Badge>
-                    <span style={{ color: "#F0F3FF" }}>{nombre}</span>
-                  </div>
-                ))}
+                      <Badge
+                        sx={{ backgroundColor: "#15F5BA", color: "#211951" }}
+                      >
+                        {i + 1}
+                      </Badge>
+                      <span style={{ color: "#F0F3FF" }}>{nombre}</span>
+                    </div>
+                  ))}
+                </ScrollBox>
               </CardContent>
             </Card>
 
             {proyectoData.materiales && (
-              <Card sx={{ backgroundColor: "#2d1f6e" }}>
-                <CardContent>
+              <Card
+                sx={{
+                  backgroundColor: "#2d1f6e",
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <CardContent
+                  sx={{ flex: 1, display: "flex", flexDirection: "column" }}
+                >
                   <h2 style={{ color: "#15F5BA", marginBottom: "10px" }}>
                     🧪 Materiales
                   </h2>
-
                   <ScrollBox>
                     <ul style={{ paddingLeft: "20px", margin: 0 }}>
                       {proyectoData.materiales.map((mat, i) => (
@@ -191,7 +216,14 @@ export default function DetalleProyecto() {
         </Agrupar>
 
         {proyectoData.costo && (
-          <Card sx={{ mt: 4, backgroundColor: "#2d1f6e", textAlign: "center" }}>
+          <Card
+            sx={{
+              mt: 4,
+              backgroundColor: "#2d1f6e",
+              textAlign: "center",
+              marginBottom: "1.5rem",
+            }}
+          >
             <CardContent>
               <h2 style={{ color: "#15F5BA" }}>💰 Costo Total</h2>
               <p style={{ fontSize: "2rem", color: "#15F5BA" }}>
@@ -206,9 +238,14 @@ export default function DetalleProyecto() {
             <Card
               sx={{
                 backgroundColor: "#2d1f6e",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
               }}
             >
-              <CardContent>
+              <CardContent
+                sx={{ flex: 1, display: "flex", flexDirection: "column" }}
+              >
                 <h2 style={{ color: "#15F5BA" }}>📝 Conclusión</h2>
                 <ScrollBox>
                   <p style={{ color: "#F0F3FF", marginTop: "10px" }}>
@@ -217,8 +254,6 @@ export default function DetalleProyecto() {
                 </ScrollBox>
               </CardContent>
             </Card>
-
-            {/* CARTA 2: DESCARGAS (Tamaño fijo según contenido) */}
             {proyectoData.pdfs && proyectoData.pdfs.length > 0 && (
               <Card sx={{ backgroundColor: "#2d1f6e" }}>
                 <CardContent>
@@ -249,6 +284,12 @@ export default function DetalleProyecto() {
                           fontWeight: "bold",
                           transition: "0.3s",
                         }}
+                        onMouseOver={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#6f5acb")
+                        }
+                        onMouseOut={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#836FFF")
+                        }
                       >
                         <span style={{ fontSize: "1.2rem" }}>📥</span>
                         <div style={{ fontSize: "0.9rem" }}>{pdf.titulo}</div>
@@ -261,10 +302,32 @@ export default function DetalleProyecto() {
           </Grupo>
           <ColumnaGrande>
             {proyectoData.videoUrl && (
-              <Card sx={{ mt: 4, backgroundColor: "#2d1f6e" }}>
-                <CardContent>
-                  <h2 style={{ color: "#15F5BA" }}>🎬 Video del Experimento</h2>
-                  <div style={{ position: "relative", paddingTop: "56.25%" }}>
+              <Card
+                sx={{
+                  backgroundColor: "#2d1f6e",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <CardContent
+                  sx={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h2 style={{ color: "#15F5BA", marginBottom: "15px" }}>
+                    🎬 Video del Experimento
+                  </h2>
+                  <div
+                    style={{
+                      position: "relative",
+                      paddingTop: "56.25%",
+                      width: "100%",
+                    }}
+                  >
                     <iframe
                       src={`https://www.youtube.com/embed/${proyectoData.videoUrl}`}
                       title="Video del experimento"
@@ -299,6 +362,7 @@ export default function DetalleProyecto() {
               border: "none",
               cursor: "pointer",
               fontSize: "1rem",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
             }}
           >
             ← Volver atrás

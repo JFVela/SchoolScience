@@ -83,6 +83,10 @@ const proyectos = [
             "Jefe de Proyecto",
             "Ingeniero de Diseño",
             "Ensamblador Mecánico",
+            "Ingeniero de Diseño",
+            "Ensamblador Mecánico",
+            "Ingeniero de Diseño",
+            "Ensamblador Mecánico",
         ],
         materiales: [
             { nombre: "Jeringas de 10ml (Actuadores maestros)", cantidad: "4 unidades" },
@@ -110,7 +114,7 @@ const proyectos = [
             }
         ],
         conclusion:
-            "El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.",
+            "El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado. El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.",
     },
     {
         id: "lampara-lava",
