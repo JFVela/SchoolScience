@@ -5,20 +5,17 @@ export default function ImageCarousel({
   images = [],
   alt = "Imagen del proyecto",
   autoPlay = true,
-  interval = 4000, // ⏱️ 4 segundos
+  interval = 4000,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  /* 🔄 Autoplay controlado */
   useEffect(() => {
     if (!autoPlay || isPaused || images.length <= 1) return;
-
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     }, interval);
-
-    return () => clearInterval(timer); // 🧹 Limpieza
+    return () => clearInterval(timer);
   }, [autoPlay, isPaused, images.length, interval]);
 
   const goToPrevious = () => {
@@ -31,106 +28,131 @@ export default function ImageCarousel({
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const goToSlide = (index) => {
-    setIsPaused(true);
-    setCurrentIndex(index);
-  };
-
   return (
     <div
       style={{
         position: "relative",
-        borderRadius: "12px",
+        borderRadius: "2rem",
         overflow: "hidden",
-        backgroundColor: "#211951",
+        backgroundColor: "#0a0a0a",
         boxShadow: "0 0 30px rgba(21, 245, 186, 0.3)",
+        aspectRatio: "16 / 9",
+        width: "100%",
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Imagen principal */}
       <div
-        style={{ position: "relative", width: "100%", aspectRatio: "16 / 9" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `url(${images[currentIndex]})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(20px) brightness(0.5)", 
+          transform: "scale(1.1)",
+          zIndex: 1,
+        }}
+      />
+
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          zIndex: 2,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <img
           src={images[currentIndex]}
-          alt={`${alt} - imagen ${currentIndex + 1}`}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          alt={`${alt} - ${currentIndex + 1}`}
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            objectFit: "contain",
+            boxShadow: "0 0 20px rgba(0,0,0,0.5)", 
+          }}
           loading={currentIndex === 0 ? "eager" : "lazy"}
         />
-
-        {images.length > 1 && (
-          <>
-            <button
-              onClick={goToPrevious}
-              aria-label="Imagen anterior"
-              style={navButtonStyle("left")}
-            >
-              <ChevronLeft size={28} />
-            </button>
-
-            <button
-              onClick={goToNext}
-              aria-label="Imagen siguiente"
-              style={navButtonStyle("right")}
-            >
-              <ChevronRight size={28} />
-            </button>
-          </>
-        )}
-
-        {/* Indicador */}
-        <div
-          style={{
-            position: "absolute",
-            top: 16,
-            right: 16,
-            padding: "6px 12px",
-            borderRadius: "999px",
-            fontSize: "14px",
-            fontWeight: 600,
-            backgroundColor: "rgba(21, 245, 186, 0.9)",
-            color: "#211951",
-          }}
-        >
-          {currentIndex + 1} / {images.length}
-        </div>
       </div>
 
-      {/* Miniaturas */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={goToPrevious}
+            style={{ ...navButtonStyle("left"), zIndex: 10 }}
+          >
+            <ChevronLeft size={28} />
+          </button>
+          <button
+            onClick={goToNext}
+            style={{ ...navButtonStyle("right"), zIndex: 10 }}
+          >
+            <ChevronRight size={28} />
+          </button>
+        </>
+      )}
+
+      <div
+        style={{
+          position: "absolute",
+          top: 16,
+          right: 16,
+          padding: "6px 12px",
+          borderRadius: "999px",
+          fontSize: "14px",
+          fontWeight: 600,
+          backgroundColor: "rgba(21, 245, 186, 0.9)",
+          color: "#211951",
+          zIndex: 10,
+        }}
+      >
+        {currentIndex + 1} / {images.length}
+      </div>
+
       {images.length > 1 && (
         <div
           style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
             display: "flex",
+            justifyContent: "center",
             gap: "8px",
-            padding: "12px",
-            overflowX: "auto",
-            backgroundColor: "#2d1f6e",
+            padding: "10px",
+            background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+            zIndex: 10,
           }}
         >
           {images.map((image, index) => (
             <button
               key={index}
-              onClick={() => goToSlide(index)}
+              onClick={() => {
+                setIsPaused(true);
+                setCurrentIndex(index);
+              }}
               style={{
-                width: 80,
-                height: 80,
-                flexShrink: 0,
-                borderRadius: "10px",
+                width: 50, 
+                height: 50,
+                borderRadius: "8px",
                 overflow: "hidden",
                 border:
                   currentIndex === index
-                    ? "3px solid #15F5BA"
-                    : "2px solid #836FFF",
-                opacity: currentIndex === index ? 1 : 0.6,
+                    ? "2px solid #15F5BA"
+                    : "1px solid rgba(255,255,255,0.5)",
                 cursor: "pointer",
+                padding: 0,
+                background: "transparent",
               }}
             >
               <img
                 src={image}
-                alt={`Miniatura ${index + 1}`}
+                alt="thumb"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                loading="lazy"
               />
             </button>
           ))}
@@ -140,7 +162,6 @@ export default function ImageCarousel({
   );
 }
 
-/* 🎨 Botones */
 function navButtonStyle(position) {
   return {
     position: "absolute",
