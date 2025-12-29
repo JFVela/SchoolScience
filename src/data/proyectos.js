@@ -24,7 +24,7 @@ const proyectos = [
             "/image/campana/campana2.jpeg", // Asumo que tendrás más fotos
         ],
         // He puesto un video real que explica cómo hacerla paso a paso
-        videoUrl: "https://www.youtube.com/watch?v=LcDle_L-JPY",
+        videoUrl: "LcDle_L-JPY",
         pdfs: [
             {
                 titulo: "Guía de Construcción y Teoría",
@@ -60,7 +60,7 @@ const proyectos = [
             "/image/densidad/densidad3.jpeg",
         ],
         // Video tutorial académico sobre el procedimiento
-        videoUrl: "https://www.youtube.com/watch?v=fSAPPblunPM",
+        videoUrl: "fSAPPblunPM",
         pdfs: [
             {
                 titulo: "Informe Científico: Principios de Flotabilidad",
@@ -80,13 +80,11 @@ const proyectos = [
         descripcion:
             "Prototipo de articulación mecánica controlado mediante un sistema hidráulico cerrado, demostrando la transmisión de fuerza y multiplicación de potencia a través de fluidos incompresibles.",
         integrantes: [
-            "Jefe de Proyecto",
-            "Ingeniero de Diseño",
-            "Ensamblador Mecánico",
-            "Ingeniero de Diseño",
-            "Ensamblador Mecánico",
-            "Ingeniero de Diseño",
-            "Ensamblador Mecánico",
+            "Sebastian M.",
+            "Ariana L.",
+            "Felix A.",
+            "Gianella Y.",
+            "Luciana E."
         ],
         materiales: [
             { nombre: "Jeringas de 10ml (Actuadores maestros)", cantidad: "4 unidades" },
@@ -106,7 +104,7 @@ const proyectos = [
             "/image/brazo/brazo5.jpeg",
         ],
         // Este es un excelente tutorial paso a paso muy popular
-        videoUrl: "https://www.youtube.com/watch?v=u6F8uyhLisk",
+        videoUrl: "u6F8uyhLisk",
         pdfs: [
             {
                 titulo: "Fundamentos Teóricos: Hidrodinámica",
@@ -114,7 +112,7 @@ const proyectos = [
             }
         ],
         conclusion:
-            "El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado. El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.El sistema validó el Principio de Pascal ($P = F/A$), logrando 3 grados de libertad (movimiento vertical, horizontal y prensil) mediante la presión hidrostática uniforme ejercida en el sistema cerrado.",
+            "El brazo hidráulico demostró la transmisión eficiente de fuerza mediante fluidos incompresibles, validando el principio de Pascal y permitiendo la manipulación precisa de cargas a través de movimientos articulados.",
     },
     {
         id: "lampara-lava",
@@ -141,7 +139,7 @@ const proyectos = [
             "/image/lampara/lampara3.jpeg",
         ],
         // Video tutorial claro y directo
-        videoUrl: "https://www.youtube.com/watch?v=tRBHEmtBiFM",
+        videoUrl: "tRBHEmtBiFM",
         pdfs: [
             {
                 titulo: "Guía de Laboratorio: Polaridad Química",

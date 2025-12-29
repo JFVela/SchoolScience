@@ -1,5 +1,22 @@
+import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const MiContenedorFlotante = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 10;
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
+`;
 
 export default function ImageCarousel({
   images = [],
@@ -49,7 +66,7 @@ export default function ImageCarousel({
           backgroundImage: `url(${images[currentIndex]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(20px) brightness(0.5)", 
+          filter: "blur(20px) brightness(0.5)",
           transform: "scale(1.1)",
           zIndex: 1,
         }}
@@ -73,7 +90,7 @@ export default function ImageCarousel({
             maxWidth: "100%",
             maxHeight: "100%",
             objectFit: "contain",
-            boxShadow: "0 0 20px rgba(0,0,0,0.5)", 
+            boxShadow: "0 0 20px rgba(0,0,0,0.5)",
           }}
           loading={currentIndex === 0 ? "eager" : "lazy"}
         />
@@ -114,20 +131,7 @@ export default function ImageCarousel({
       </div>
 
       {images.length > 1 && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            display: "flex",
-            justifyContent: "center",
-            gap: "8px",
-            padding: "10px",
-            background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
-            zIndex: 10,
-          }}
-        >
+        <MiContenedorFlotante>
           {images.map((image, index) => (
             <button
               key={index}
@@ -136,7 +140,7 @@ export default function ImageCarousel({
                 setCurrentIndex(index);
               }}
               style={{
-                width: 50, 
+                width: 50,
                 height: 50,
                 borderRadius: "8px",
                 overflow: "hidden",
@@ -156,7 +160,7 @@ export default function ImageCarousel({
               />
             </button>
           ))}
-        </div>
+        </MiContenedorFlotante>
       )}
     </div>
   );
